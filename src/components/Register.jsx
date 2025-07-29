@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Login() {
+function Register() {
   return (
     <section className="bg-white w-[90vw] max-w-[500px] mx-auto rounded-2xl min-h-44 px-8 py-16 shadow-lg">
       <div className="form-wrapper space-y-6">
@@ -84,4 +84,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register
