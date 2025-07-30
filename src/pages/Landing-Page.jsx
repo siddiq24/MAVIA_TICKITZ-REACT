@@ -1,25 +1,24 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 
 const LandingPage = () => {
   return (
     <>
-      <Navbar/>
-      <main className="font-sans">
-        <section id="hero" className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:px-12 lg:px-24 bg-gray-50">
+      <main className="font-sans md:p-[8vw]">
+        <section id="hero" className="gap-4 flex flex-col md:flex-row items-center justify-between px-6 py-12">
           <div className="hero-content md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">MOVIE TICKET PURCHASE #1</h1>
+            <h1 className="text-xl md:text-lg font-semibold text-blue-600 mb-4">MOVIE TICKET PURCHASE #1</h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">Experience the Magic of Cinema: Book Your Tickets Today</h2>
             <p className="text-lg text-gray-600">Sign up and get the ticket with a lot of discount</p>
           </div>
+
           <div className="hero-images flex gap-4 md:w-1/2">
-            <div className="images-left flex flex-col gap-4">
-              <img className="image-top w-full rounded-lg shadow-lg" src="../assets/figure-1.png" alt="" />
-              <img className="image-bottom w-full rounded-lg shadow-lg" src="../assets/figure-3.png" alt="" />
+            <div className="images-left flex flex-1 flex-col gap-4">
+              <img className="w-full aspect-[4/3] object-cover object-top rounded-t-3xl shadow-lg" src="/figure-1.png" alt="" />
+              <img className="w-full aspect-[3/4] object-cover object-top rounded-b-3xl shadow-lg" src="/figure-3.png" alt="" />
             </div>
-            <div className="images-right flex flex-col gap-4">
-              <img className="image-top w-full rounded-lg shadow-lg" src="../assets/figure-2.png" alt="" />
-              <img className="image-bottom w-full rounded-lg shadow-lg" src="../assets/figure-4.png" alt="" />
+            <div className="images-right flex flex-1 flex-col gap-4">
+              <img className="w-full aspect-[3/4] object-cover object-top rounded-t-3xl shadow-lg" src="/figure-2.png" alt="" />
+              <img className="w-full aspect-[4/3] object-cover object-top rounded-b-3xl shadow-lg" src="/figure-4.png" alt="" />
             </div>
           </div>
         </section>
@@ -74,8 +73,8 @@ const LandingPage = () => {
           <h3 className="section-title text-3xl md:text-4xl font-bold text-center mb-12">Exciting Movies That Should Be Watched Today</h3>
           <div className="movies-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="movie-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <img className="w-full" src="/src/assets/MOVIES/1.png" alt="Black Widow movie poster" />
-              <div className="p-4">
+              <img className="w-full aspect-[3/5]" src="/MOVIES/1.png" alt="Black Widow movie poster" />
+              <div className="p-4 h-full">
                 <h4 className="text-xl font-semibold mb-2">Black Widow</h4>
                 <div className="movie-categories flex gap-2">
                   <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Action</span>
@@ -84,8 +83,8 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="movie-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <img className="w-full" src="/src/assets/MOVIES/2.png" alt="Black Widow movie poster" />
-              <div className="p-4">
+              <img className="w-full aspect-[3/5]" src="/MOVIES/2.png" alt="Black Widow movie poster" />
+              <div className="p-4 h-full">
                 <h4 className="text-xl font-semibold mb-2">Black Widow</h4>
                 <div className="movie-categories flex gap-2">
                   <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Comedy</span>
@@ -94,8 +93,8 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="movie-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <img className="w-full" src="/src/assets/MOVIES/3.png" alt="Black Widow movie poster" />
-              <div className="p-4">
+              <img className="w-full aspect-[3/5]" src="/MOVIES/3.png" alt="Black Widow movie poster" />
+              <div className="p-4 h-full">
                 <h4 className="text-xl font-semibold mb-2">Black Widow</h4>
                 <div className="movie-categories flex gap-2">
                   <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Action</span>
@@ -104,8 +103,8 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="movie-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <img className="w-full" src="/src/assets/MOVIES/4.png" alt="Black Widow movie poster" />
-              <div className="p-4">
+              <img className="w-full aspect-[3/5]" src="/MOVIES/4.png" alt="Black Widow movie poster" />
+              <div className="p-4 h-full">
                 <h4 className="text-xl font-semibold mb-2">Black Widow</h4>
                 <div className="movie-categories flex gap-2">
                   <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">Action</span>
@@ -191,32 +190,31 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Newsletter Section */}
-        <section id="newsletter" className="relative px-6 py-16 md:px-12 lg:px-24 bg-blue-700 text-white overflow-hidden">
-          <div className="newsletter-content relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Subscribe to our newsletter</h2>
+         <section id="newsletter" className="relative mx-8 mb-18 rounded-2xl px-6 pt-8 pb-48 md:px-12 lg:px-24 bg-blue-700 text-white overflow-hidden">
+          <div className="newsletter-content relative z-10 max-w-2xl mx-auto my-12 text-center">
+            <h2 className="text-4xl font-light px-4 leading-16 tracking-widest md:text-4xl mb-6">Subscribe to our newsletter</h2>
             <form className="newsletter-form flex flex-col sm:flex-row gap-4">
               <input
                 type="text"
                 placeholder="First Name"
-                className="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-grow px-4 py-4 rounded-md text-white bg-blue-500 border border-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-grow px-4 py-4 rounded-md text-white bg-blue-500 border border-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-blue-800 hover:bg-blue-900 rounded-md font-semibold transition-colors"
+                className="px-6 py-3 bg-white text-blue-700 text-2xl hover:bg-blue-900 rounded-md font-semibold transition-colors"
               >
                 Subscribe Now
               </button>
             </form>
           </div>
-          <div className="newsletter-circle absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-blue-800 opacity-30"></div>
+          <div className="newsletter-circle absolute -right-30 -bottom-30 w-72 h-72 rounded-full bg-blue-700 border-8 border-white"></div>
         </section>
       </main>
     </>
