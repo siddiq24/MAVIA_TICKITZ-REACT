@@ -3,5 +3,6 @@
 
 *{
     font-family: "Mulish", sans-serif;
-
+    transition: all 200ms linear;
+    box-sizing: border-box;
 }
