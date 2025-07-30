@@ -102,7 +102,14 @@ const MovieListPage = () => {
 
     return (
         <>
-            <Navbar />
+            <img className="absolute -z-1 h-66 md:h-88 lg:h-[30vw] w-full object-cover" src="/Hero.png" alt="Cinema background" />
+
+            <section className="h-66 md:h-88 lg:h-[30vw] py-[10%] md:px-[8vw] bg-black/40" >
+                <div className="flex flex-col justify-around h-full" >
+                    <h1 className='text-white black text-xs md:text-[1.5vw] '>LIST MOVIE OF THE WEEK</h1>
+                    <h2 className='text-white black text-4xl md:text-[4vw] '>Experience the Magic of <br/> Cinema: Book Your Tickets<br />Today</h2>
+                </div >
+            </section >
             <div className="container mx-auto px-4 py-8">
                 {/* Search Input */}
                 <div className="mb-8 md:flex gap-6">
@@ -139,7 +146,7 @@ const MovieListPage = () => {
                         <input
                             type="text"
                             placeholder="New Born Expert"
-                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-2"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
