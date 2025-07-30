@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
 
     // const [loged, setLoged] = useState('')
     const [sidebar, setSidebar] = useState(true)
+    // const loged = true;
 
 
     return (
-        <header className='flex items-center justify-between px-8 py-8 shadow'>
+        <header className='flex items-center justify-between px-8 py-8 shadow sticky top-0 right-0 left-0 z-50 overflow-hidden'
+        style={{backdropFilter: (sidebar)&& 'blur(10px)', backgroundColor: (sidebar)?'rgba(225,225,225,0.5':'white'}}>
             <div>
                 <svg width="121" height="32" viewBox="0 0 121 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -15,40 +18,45 @@ function Navbar() {
                         fill="#1D4ED8" />
                 </svg>
             </div>
-
             <nav style={{
-                display: (sidebar)&&'none'
-            }} className='fixed right-0 bg-blue-700/50 backdrop-blur-sm h-full top-0 flex flex-col justify-between pr-8 pl-12  pt-32 py-8 text-2xl items-end text-right'>
+                right: (sidebar) ? '-100%':'0',
+            }} className='fixed right-0 bg-blue-300/50 backdrop-blur-xl h-screen top-0 bottom-0 flex flex-col justify-between w-[45%] px-8 pt-32 py-8 text-2xl items-end text-right'>
                 <ul>
-                    <li className='my-6 text-3xl font-bold '><a href="/">Home</a></li>
-                    <li className='my-6 text-3xl font-bold '><a href="/Movies">Movie</a></li>
-                    <li className='my-6 text-3xl font-bold '><a href="/">Buy Ticket</a></li>
+                    <li className='my-6 text-3xl '><a href="/">Home</a></li>
+                    <li className='my-6 text-3xl '><a href="/Movies">Movie</a></li>
+                    <li className='my-6 text-3xl '><a href="/">Buy Ticket</a></li>
                 </ul>
-                <div className="flex flex-col w-full items-center gap-2" id="authButtons">
-                    <button onclick="window.location.href = '/Registrasi'" className="w-[130%] bg-blue-500 py-2">SignIn</button>
-                    <button onclick='window.location.href = "/Login"' className="w-[130%] bg-white py-2">SignUp</button>
-                    <button onclick='alert("Berhasil Log Out")' className="w-[130%] bg-blue-500 py-2 " id="logoutBtn1">LogOut</button>
-                </div>
+                <ul className="flex flex-col w-full items-center gap-2" id="authButtons">
+                    <ul className="block rounded-xl w-[100%] bg-blue-500 text-lg text-white py-2 text-center"><Link to = '/Registrasi' >SignIn</Link></ul>
+                    <ul className="block rounded-xl w-[100%] bg-white text-lg text-blue-800 py-2 text-center"><Link to = "/Login" >SignUp</Link></ul>
+                    <ul><Link onClick='alert("Berhasil Log Out")' className="rounded-xl w-[100%] bg-blue-500 text-lg py-2 hidden" id="logoutBtn1">LogOut</Link></ul>
+                </ul>
             </nav>
 
-            <button className="w-10 h-9 z-50 flex flex-col items-end justify-between" onClick={() => setSidebar(!sidebar)}>
-                <span className="w-full h-[6px] bg-black rounded-xl"></span>
-                <span className="w-[60%] h-[6px] bg-black rounded-xl"></span>
-                <span className="w-full h-[6px] bg-black rounded-xl"></span>
+            <ul className='md:flex gap-8 hidden'>
+                <li><a href="/">Home</a></li>
+                <li><a href="/Movies">Movie</a></li>
+                <li><a href="/">Buy Ticket</a></li>
+            </ul>
+
+            <button className="relative w-10 h-9 z-50 flex flex-col gap-2 items-end justify-center md:hidden" onClick={() => setSidebar(!sidebar)}>
+                <span className={`w-full h-[5px] bg-black rounded-xl ${(!sidebar)&&'rotate-45 translate-y-[13px]'}`}></span>
+                <span className={`h-[5px] bg-black rounded-xl ${(!sidebar)?'w-full -rotate-45':'w-[60%]'}`}></span>
+                <span className={`h-[5px] bg-black rounded-xl ${(!sidebar)?'w-0':'w-full'}`}></span>
             </button>
 
             <div id="userDropdown" className="hidden">
                 <img src="/profile.png" alt="User Avatar" id="userAvatar"
-                className='w-20 h-20 object-cover rounded-full ' />
-                <div className="dropdown hidden">
-                    <button onclick='console.log("Berhasil Log Out")' className="logout2 " id="logoutBtn2">LogOut</button>
+                    className='w-20 h-20 object-cover rounded-full ' />
+                <div className="dropdown">
+                    <button className="logout2 " id="logoutBtn2">LogOut</button>
                 </div>
             </div>
 
-            <div className="hidden" id="authButtons">
-                <button onclick="window.location.href = '/Registrasi'" className="signin">SignIn</button>
-                <button onclick='window.location.href = "/Login"' className="signup">SignUp</button>
-            </div>
+            <ul className="hidden md:flex gap-2" id="authButtons">
+                <li className='bg-white px-6 py-3 rounded-xl border-2 border-blue-600'><Link to = '/Registrasi'>SignIn</Link></li>
+                <li className='bg-blue-600 px-6 py-3 rounded-xl border border-blue-600'><Link to = "/Login">SignUp</Link></li>
+            </ul>
         </header>
     )
 };
