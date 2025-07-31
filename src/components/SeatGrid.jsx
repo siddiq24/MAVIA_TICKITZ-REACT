@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SeatGrid = () => {
+const SeatGrid = ({selectedSeats, setSelectedSeats}) => {
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
     const cols = Array.from({ length: 14 }, (_, i) => i + 1);
-    const [selectedSeats, setSelectedSeats] = useState([]);
 
     const handleSeatClick = (row, col) => {
         const seatCode = `${row}${col}`;

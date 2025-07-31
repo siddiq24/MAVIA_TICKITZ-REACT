@@ -2,20 +2,7 @@ import React, { useState } from 'react'
 import SeatGrid from '../components/SeatGrid'
 
 function OrderPage() {
-
-    const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-    const cols = Array.from({ length: 14 }, (_, i) => i + 1);
     const [selectedSeats, setSelectedSeats] = useState([]);
-
-    const handleSeatClick = (row, col) => {
-        const seatCode = `${row}${col}`;
-        console.log(seatCode)
-        setSelectedSeats((prev) =>
-            prev.includes(seatCode)
-                ? prev.filter((seat) => seat !== seatCode)
-                : [...prev, seatCode]
-        );
-    };
 
     return (
         <main className='bg-gray-200 flex justify-center'>
@@ -68,37 +55,7 @@ function OrderPage() {
                             <div className='hidden'>Screen</div>
                             <div className='w-[90%] justify-self-center bg-blue-400 h-2 rounded-full my-8'></div>
                             <section className="w-full">
-                                <div className="flex flex-col gap-2 p-4 rounded">
-                                    {rows.map((row) => (
-                                        <div key={row} className="flex gap-[1vw] items-center">
-                                            <span className="text-xs  ">{row}</span>
-                                            {cols.map((col, colIndex) => {
-                                                const seatCode = `${row}${col}`;
-                                                const isSelected = selectedSeats.includes(seatCode);
-
-                                                return (
-                                                    <React.Fragment key={seatCode}>
-                                                        {/* Kursi */}
-                                                        <div
-                                                            onClick={() => handleSeatClick(row, col)}
-                                                            className={`w-full aspect-square rounded cursor-pointer text-[10px] flex items-center justify-center transition-colors
-                                                    ${isSelected ? 'bg-[#1D4ED8]' : 'bg-[#D6D8E7] hover:bg-[#1D4ED8]'}`}
-                                                            title={`Seat ${seatCode}`}
-                                                        >
-                                                        </div>
-
-                                                        {/* Lorong setelah kolom ke-7 */}
-                                                        {colIndex === 6 && <div className="w-[70vw]" />}
-                                                    </React.Fragment>
-                                                );
-                                            })}
-                                        </div>
-                                    ))}
-
-                                    <div className="mt-4 text-sm">
-                                        <strong>Dipilih:</strong> {selectedSeats.length > 0 ? selectedSeats.join(', ') : 'Belum ada'}
-                                    </div>
-                                </div>
+                                <SeatGrid selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
                             </section>
                         </nav>
                         <h2 className='text-2xl my-4'>Seating key</h2>
