@@ -1,8 +1,11 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 *{
-    font-family: "Mulish", sans-serif;
-    transition: all 200ms linear;
+    transition: all 100ms linear;
     box-sizing: border-box;
+    font-family: 'Mulish';
+}
+
+.emas{
+    background-color: rgb(255, 215, 0);
 }
