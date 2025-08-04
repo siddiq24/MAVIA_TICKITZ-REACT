@@ -22,7 +22,7 @@ const MovieCard = ({ movie, genreMap, untuk }) => {
                     src={
                         movie.poster_path
                             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                            : 'https://i.pinimg.com/originals/07/85/e7/0785e7dae354aba21aff4c3752166011.gif'
+                            : 'https://i.pinimg.com/736x/7b/fd/48/7bfd489f68437bcb0c4f71e70316a603.jpg'
                     }
                     alt={movie.title || 'Movie Poster'}
                     loading="lazy"
@@ -35,12 +35,11 @@ const MovieCard = ({ movie, genreMap, untuk }) => {
                     >
                         Detail
                     </Link>
-                    <Link 
-                        to={`/order/${movie.id}`} 
+
+                    <Link to={`/order/${movie.id}`} 
                         className='rounded-lg bg-blue-600 w-full py-2 text-sm hover:bg-blue-700 transition-colors duration-200 text-white font-medium'
-                    >
-                        Buy Ticket
-                    </Link>
+                    >Buy Ticket</Link>
+
                 </div>
             </div>
 

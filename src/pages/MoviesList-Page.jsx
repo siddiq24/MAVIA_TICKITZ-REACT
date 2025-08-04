@@ -38,6 +38,7 @@ const MovieListPage = () => {
                     `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page || 1}`
                 );
                 setMovies(popularResponse.data.results);
+                console.log(popularResponse)
 
                 // Fetch upcoming movies
                 const upcomingResponse = await axios.get(
@@ -62,9 +63,11 @@ const MovieListPage = () => {
             try {
                 setIsLoading(true);
                 const response = await axios.get(
-                    `${BASE_URL}/search/movie?api_key=${API_KEY}$language=en-US&query=${encodeURIComponent(searchQuery)}&page=${page || 1}`
+                    `${BASE_URL}/search/movie?api_key=${API_KEY}&adult=true&language=en-US&query=${encodeURIComponent(searchQuery)}&page=${page || 1}`
                 );
                 setMovies(response.data.results);
+                // console.log(response)
+
             } catch (err) {
                 console.error('Error searching movies:', err);
             } finally {
@@ -75,8 +78,10 @@ const MovieListPage = () => {
         return () => clearTimeout(timer);
     }, [searchQuery, page]);
 
+
     // Genre filter
     const handleGenreFilter = async (genreName) => {
+        if (searchQuery.trim()) return;
         try {
             setIsLoading(true);
             setActiveGenre(genreName);
