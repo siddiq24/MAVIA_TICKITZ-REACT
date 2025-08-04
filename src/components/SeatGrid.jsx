@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SeatGrid = ({selectedSeats, setSelectedSeats}) => {
+const SeatGrid = ({ selectedSeats, setSelectedSeats }) => {
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
     const cols = Array.from({ length: 14 }, (_, i) => i + 1);
 
@@ -17,7 +17,7 @@ const SeatGrid = ({selectedSeats, setSelectedSeats}) => {
         <div className="flex flex-col gap-2 p-4 rounded">
             {rows.map((row) => (
                 <div key={row} className="flex gap-[1vw] items-center">
-                    <span className="text-xs  ">{row}</span>
+                    <span className="text-xs md:text-[1vw] w-[80%]">{row}</span>
                     {cols.map((col, colIndex) => {
                         const seatCode = `${row}${col}`;
                         const isSelected = selectedSeats.includes(seatCode);
@@ -33,7 +33,7 @@ const SeatGrid = ({selectedSeats, setSelectedSeats}) => {
                                 >
                                 </div>
 
-                                {/* Lorong setelah kolom ke-7 */}
+                                {/* GAP */}
                                 {colIndex === 6 && <div className="w-[70vw]" />}
                             </React.Fragment>
                         );
